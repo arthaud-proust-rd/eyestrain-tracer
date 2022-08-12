@@ -11,7 +11,9 @@ I hope that my work can give me some complementary data about my eyes health.
 I can be wrong *de but en blanc*, but anyways it will be a way to learn OpenCV and to understand statistics. 
 
 ## Goal to achieve
-I want to get enough data about eyes during my work on the computer to understang what can help eyestrain to appear.
+I want to get enough data about my eyes during my work on the computer to understand what can make my eyestrain appear. So that I can prevent it.
+
+Theses metrics will be compared to average metrics and analysed so that I can find if I doesn't blink enough, or, if I blink enough maybe that will put ligth on another problem, like bad quality tears.
 
 
 ## Informations about eyes
@@ -23,10 +25,11 @@ From [this article](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6118863/)
 But from the research ["Analysis of blink rate patterns in normal subjects"](https://movementdisorders.onlinelibrary.wiley.com/doi/10.1002/mds.870120629)
 > Mean BR at rest was **17 blinks/min**, during conversation it increased to 26, and it was as low as **4.5 while reading**.
 
-Can notice that in normal conditions human blink his eyes around 18 times per minute?
+Can we notice that in normal conditions human blink their eyes around 18 times per minute?
 
 ## Observations about the Blink tracker
-The calculation of the blink rate becomes more accurate over time.
-
+The calculation of the blink rate becomes more accurate over time (Left graph).
+![Graph of my 40min eye measurement](assets/exports/2022-08-12-11-30-55.csv.png)
+In my case, with the actual blink tracker, I get a final measure of 22.6 blinks/min.
 ## Credits
 I used [this post of Stepan Filonov](https://medium.com/@stepanfilonov/tracking-your-eyes-with-python-3952e66194a6) as base to start the project.
