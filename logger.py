@@ -1,5 +1,6 @@
 import time
 import csv
+import os
 from threading import Timer
 
 class RepeatTimer(Timer):
@@ -15,8 +16,13 @@ class Logger:
 
         self.data = {}
 
+        os.makedirs(self.getLogsFolderPath(), exist_ok=True)
+
+    def getLogsFolderPath(self):
+        return 'logs'
+
     def getFilePath(self):
-        return f'logs/{self.id}.csv'
+        return f'{self.getLogsFolderPath()}/{self.id}.csv'
 
     def updateData(self, data):
         self.data = data

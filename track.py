@@ -115,8 +115,8 @@ def main():
             if eye_lost_count==2 and not is_blinking:
                 blink_count+=1
                 is_blinking = True
-                p1 = Process(target=playBlinkSound)
-                p1.start()
+                # p1 = Process(target=playBlinkSound)
+                # p1.start()
             elif eye_lost_count==0:
                 is_blinking = False
 
