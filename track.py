@@ -4,7 +4,7 @@ import time
 from playsound import playsound
 import csv
 from logger import Logger
-from stats import StatsName
+from stats import StatsName, StatsColumns
 from multiprocessing import Process
 
 # init part
@@ -84,12 +84,7 @@ def main():
     is_blinking = False
     blink_per_minutes = 0
 
-    logger = Logger([
-        StatsName.BLINK_COUNT,
-        StatsName.IS_BLINKING,
-        StatsName.TIME_ELAPSED,
-        StatsName.BLINK_PER_MINUTE,
-    ])
+    logger = Logger(StatsColumns)
     logger.startLoggingData()
 
     while True:
