@@ -3,9 +3,9 @@ import numpy as np
 import time
 from playsound import playsound
 import csv
-from logger import Logger
-from stats import StatsName, StatsColumns
 from multiprocessing import Process
+from imports.logger import Logger
+from imports.stats import StatsName, StatsColumns
 
 # init part
 face_cascade = cv2.CascadeClassifier('assets/haarcascades/haarcascade_frontalface_default.xml')

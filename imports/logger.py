@@ -9,14 +9,21 @@ class RepeatTimer(Timer):
             self.function(*self.args, **self.kwargs)
 
 class Logger:
-    def __init__(self, csvColumns):
-        self.id = time.strftime("%Y-%m-%d-%H-%M-%S", time.gmtime())
+    def __init__(self, csvColumns, log_id=time.strftime("%Y-%m-%d-%H-%M-%S", time.gmtime())):
+        self.id = log_id
         self.intervalInSeconds = 1
         self.csvFileColumns = csvColumns
 
         self.data = {}
 
         os.makedirs(self.getLogsFolderPath(), exist_ok=True)
+
+    @staticmethod
+    def lastLog(csvColumns):
+        last_log_filename = sorted(os.listdir('logs/'))[-1]
+        last_log_id = os.path.splitext(last_log_filename)[0]
+        print(last_log_id)
+        return Logger(csvColumns, log_id=last_log_id)
 
     def getLogsFolderPath(self):
         return 'logs'
@@ -45,3 +52,12 @@ class Logger:
             self.csvfile.close()
             delattr(self, 'csvfile')
             delattr(self, 'dictwriter')
+
+    def getRows(self):
+        csvfile = open(self.getFilePath(), newline='')
+        dictreader = csv.DictReader(csvfile, self.csvFileColumns, delimiter=';', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        rows = [row for row in dictreader]
+        # remove header
+        rows = rows[1:]
+        csvfile.close()
+        return rows
